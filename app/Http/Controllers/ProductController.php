@@ -15,6 +15,22 @@ class ProductController extends Controller
     {
         $this->user = JWTAuth::parseToken()->authenticate();
     }
+
+    /**
+     * @OA\Get(
+     *     path="/api/products",
+     *     tags={"products"},
+     *     summary="Get some authenticated route",
+     *     operationId="someRoute",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success with some route data"
+     *     ),
+     *     security={
+     *         {"bearer": {}}
+     *     }
+     * )
+     */
     public function index()
     {
         return $this->user
